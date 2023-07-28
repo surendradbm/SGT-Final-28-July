@@ -1,0 +1,371 @@
+/* SideBar Styling CSS Starts */
+.card{
+    border: 1px solid #d6d7dc;
+    border-radius: 5px;
+}
+.shadow-sm{
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05) !important;
+}
+.menu-link:hover{
+    background: #F1F5F9;
+}
+.menu-link span{
+    color: #606A7C!important;
+}
+.menu-link:hover span{
+    color: #606A7C!important;
+    /* background-color: #787887; */
+}
+.app-sidebar-menu{
+    background: #ffffff;
+}
+
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link.active{
+    background-color: #244b8a;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link.active .menu-title {
+    font-weight: 700;
+    color: #ffffff!important;
+}
+/* SideBar Styling CSS Ends */
+
+/* Property=>Index CSS Starts */
+
+.properties_container {
+    border: 2px solid #244b8a;
+    border-radius: 5px;
+}
+
+.page-heading {
+    padding-bottom: 10px;
+    color: #244b8a;
+}
+
+/* .col-md-2 {
+    margin: 15px;
+    padding: 5px;
+} */
+
+.fw-bold {
+    font-weight: 900 !important;
+}
+
+/* Property=>Index CSS Ends */
+
+/* SideBar Image Starts */
+
+.h-25px {
+    height: 121px !important;
+    width: 265px;
+}
+.app-sidebar-logo{
+    height: auto;
+}
+
+/* SideBar Image Ends */
+
+/* Header Menu Starts */
+
+.header_title {
+    font-size: 25px;
+    font-weight: bolder;
+    color: #244b8a;
+}
+
+/* Header Menu Starts */
+
+/* Subscription Create Starts */
+
+.image-input label{
+    position: relative;
+    top: 100px;
+    left: 200px;
+    padding: 10px;
+    display: table;
+    /* border: 1px solid #9597a6; */
+    border-radius: 5px;
+}
+
+/* Subscription Create Ends */
+
+.image-input input[type="file"] {
+    display: none;
+}
+
+/* Subscription Create Ends  */
+
+/* Subscription Manage Starts */
+
+.table thead{
+    background: #244b8a;
+}
+.table thead tr th{
+    color: #ffffff!important;
+}
+
+/* Subscription Manage Ends */
+
+/* form css */
+
+.form-group{
+    margin-top: 10px;
+}
+
+.submit_btn{
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px 40px;
+    background: #244b8a;
+    color: white;
+}
+.submit_btn:hover{
+    background: #4c6080;
+}
+.text-bg{
+    color: #244b8a;;
+}
+/* form css */
+
+/* recyle-bin */
+.notydiv{
+    margin: 0px;
+    border: 1px solid #a1abc0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.symbol img {
+    border-radius: 50%;
+}
+.under_line{
+    text-decoration: underline!important;
+}
+/* recyle-bin */
+
+/* btn */
+
+.btn-theame{
+    color: white!important;
+    background: #244b8a!important;
+}
+
+/* notyficatin page */
+
+.nav-item .tab-btn{
+    color: white!important;
+    background: #b5b5c3!important;
+}
+.nav-link i{
+    color: white!important;
+
+}
+.nav-item .active{
+    color: white!important;
+    background: #244b8a!important;
+}
+
+/* notyficatin page */
+
+/* btn */
+
+.btn-theame{
+    color: lemonchiffon!important;
+    background: #244b8a!important;
+}
+/* btn */
+
+.app-main {
+    padding: 20px;
+    display: flex;
+}
+
+.notifacation_menubar{
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #a1a5b7;
+    border-radius: 5px;
+}
+.notifacation_menubar .menu-link:hover{
+    background:#244b8a!important;
+}
+
+.notifacation_menubar .menu-link:hover span{
+    color: white!important;
+
+}
+.notifacation_menubar .menu-item.active{
+    background: #244b8a!important;
+}
+.notifacation_menubar .menu-item.active span{
+    color: white!important;
+
+}
+
+/*  */
+.sidebar_div {
+    border: 1px solid #d6d7dc;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.nav-pills {
+    --bs-nav-pills-border-radius: 0.475rem;
+    --bs-nav-pills-link-active-color: #ffffff;
+    --bs-nav-pills-link-active-bg: #244b8a;
+}
+
+.nav-pills .nav-link {
+    background: gainsboro;
+    border: 0;
+    color: #606a7c;
+    border-radius: var(--bs-nav-pills-border-radius);
+}
+
+.nav-tabs .nav-link.active i {
+    color: white;
+}
+
+.nav-tabs .nav-link {
+    background: white;
+    border-radius: 3px;
+}
+
+.nav-tabs .nav-link:hover {
+    background: #cfdaf3b3;
+    /* color: white; */
+}
+
+.table.gy-5 td {
+    padding: 5px 10px;
+}
+
+
+
+#exTab1 .nav-pills {
+    justify-content: center;
+}
+
+li.active.hhh {
+    background: #244b8a;
+}
+
+#exTab1 .nav-pills>li.active.hhh>a {
+    color: white;
+}
+
+.hhh {
+    border: 1px solid #606a7c;
+    background: #f5f7ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#exTab1 .nav-pills>li>a {
+    border-radius: 0;
+    color: black;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills>li>a {
+    border-radius: 0;
+    padding: 5px 15px;
+}
+
+.nt_title {
+    padding: 10px;
+}
+
+.table.dataTable>thead .sorting_asc:after {
+    display: none !important;
+}
+
+.text-hover-primary {
+    transition: color 0.2s ease;
+    color: #3173df!important;
+}
+
+.float_right{
+    float: right;
+}
+
+.filter_dropdown{
+    position: absolute;
+    right: 0;
+    top: 69px;
+}
+
+.image_table{
+    width: 50px;
+}
+
+.bg_color{
+    color: #244b8a;
+}
+
+.font_size_color{
+    font-size: 26px !important; 
+    color: #244b8a !important;
+}
+
+.properties_container {
+    border: 2px solid #244b8a;
+    border-radius: 5px;
+}
+
+.page-heading {
+    padding-bottom: 10px;
+    color: #244b8a;
+}
+
+.fw-bold {
+    font-weight: 900 !important;
+}
+
+.properties_container i{
+    padding: 10px; position: absolute; font-size: 26px; color: #244b8a;
+}
+
+.coupoun_style{
+    position: absolute; font-size: 16px; left: 81px; padding: 12px; font-weight: 600;
+}
+
+.margin-bottom10{
+    margin-bottom: 10px;
+}
+
+.padding13{
+    padding: 13px;
+}
+
+.active_coupoun{
+    position: absolute; font-size: 16px; left: 368px; padding: 10px; font-weight: 600;
+}
+
+.sus108{
+    position: absolute; font-size: 20px; left: 522px; padding: 8px; color: #244b8a; font-weight: 600 !important;
+}
+
+.inactive_coupoun{
+    position: absolute; font-size: 16px; left: 655px; padding: 10px; font-weight: 600;
+}
+
+.sus4{
+    position: absolute; font-size: 20px; left: 811px; padding: 8px; color: #244b8a; font-weight: 600 !important;
+}
+
+.sus112{
+    position: absolute; font-size: 20px; left: 239px; padding: 8px; color: #244b8a; font-weight: 600 !important;
+}
+
+#kt_app_sidebar_logo{
+    height: 10px;
+}
+
+#dropdown_lang
+{   
+    margin-top: 12px;
+    margin-left: 16px;
+}

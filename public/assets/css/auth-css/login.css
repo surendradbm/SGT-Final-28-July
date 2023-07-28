@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+.h1 {
+    padding-bottom: 8px
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+}
+
+#img1 {
+    padding: 10px;
+}
+
+.text1 {
+    color: #000000;
+    text-decoration: none;
+}
+
+.password-input {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+label {
+    padding-top: 11px;
+}
