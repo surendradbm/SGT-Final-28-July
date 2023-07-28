@@ -194,10 +194,18 @@ class RegisterController extends Controller
         $data['postal_code'] = $request->postal_code;
         $data['address'] = $request->street;
         $data['user_id'] = $user_id;
-        $modal = CompanyDetail::create($data);
 
-        // Auth::login($modal);
-        return redirect()->route('property_owner.select_plan');
+        $check = CompanyDetail::where('user_id', $user_id)->first();
+        if ($check) {
+            $modal = CompanyDetail::where('id', $check->id)->update($data);
+            // Auth::login($modal);
+            return redirect()->route('property_owner.select_plan');
+            // return "yes";
+        } else {
+            $modal = CompanyDetail::create($data);
+            return redirect()->route('property_owner.select_plan');
+            // return "no";
+        }
     }
 
     public function select_plan()

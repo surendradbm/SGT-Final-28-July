@@ -44,13 +44,8 @@ Route::get('dependent-dropdown', [RegisterController::class, 'company_details'])
 Route::post('api/fetch-states', [RegisterController::class, 'fetchState']);
 Route::post('api/fetch-cities', [RegisterController::class, 'fetchCity']);
 
-// Route::get('/stripe1', function () {
-//     return view('strip_old');
-// });
-
 // AUTH ROUTES
 Route::middleware('auth')->group(function () {
-    // Route::middleware(['auth', 'preventPaymentSuccessAccess'])->group(function () {
 
     // VERIFY EMAIL
     Route::get('verify-email', [RegisterController::class, 'verify_email'])->name('property_owner.verify_email');
@@ -98,16 +93,12 @@ Route::middleware('auth')->group(function () {
 
         // DASHBOARD
         Route::get('dashboard', [DashboardController::class, 'propertyOwnerDashboard'])->name('property-owner.dashboard');
-        // Route::get('dashboard', function () {
-        //     // Set the session flag indicating the user has visited the dashboard
-        //     Session::put('visited_dashboard', true);
-        //     return view('pages.dashboards.index');
-        // })->name('property-owner.dashboard');
 
         // GUARD
         Route::prefix('/guards')->group(function () {
             Route::get('all', [GuardsController::class, 'all'])->name('property_owner.guards.all');
             Route::get('add', [GuardsController::class, 'add'])->name('property_owner.guards.add-guard');
+            Route::post('add', [GuardsController::class, 'add_check'])->name('property_owner.guards.add-guard-check');
             Route::get('edit', [GuardsController::class, 'edit'])->name('property_owner.guards.edit-guard');
         });
 
@@ -137,30 +128,37 @@ Route::middleware('auth')->group(function () {
             Route::get('assignGuards', [ShiftController::class, 'assignGuards'])->name('property_owner.shift.morningShift-guard');
         });
 
+        // STAFF
         Route::group(['prefix' => 'staff'], function () {
             Route::get('/all', [StaffController::class, 'all'])->name('property_owner.staff.all');
             Route::get('/add', [StaffController::class, 'add'])->name('property_owner.staff.add');
             Route::get('/edit', [StaffController::class, 'edit'])->name('property_owner.staff.edit');
         });
 
+        // ROUTES
         Route::group(['prefix' => 'routes'], function () {
             Route::get('/all', [RoutesController::class, 'all'])->name('property_owner.routes.all');
             Route::get('/add', [RoutesController::class, 'add'])->name('property_owner.routes.add');
             Route::get('/edit', [RoutesController::class, 'edit'])->name('property_owner.routes.edit');
         });
 
+        // CHECKPOINTS
         Route::group(['prefix' => 'checkpoints'], function () {
             Route::get('/', [CheckpointContoller::class, 'index'])->name('property_owner.checkpoints');
             Route::get('/history', [CheckpointContoller::class, 'history'])->name('property_owner.checkpoints.history');
         });
 
+        // MESSAGES
         Route::group(['prefix' => 'messages'], function () {
             Route::get('/', [MessagesController::class, 'index'])->name('property_owner.messages');
         });
+
+        // TIMESHEET
         Route::group(['prefix' => 'timesheet'], function () {
             Route::get('/', [TimesheetController::class, 'index'])->name('property_owner.timesheet');
         });
 
+        // MANAGE LEAVES
         // Route::group(['prefix' => 'manage-leaves'], function () {
         //     Route::get('requested-leaves', [ManageLeaveController::class, 'requested_leaves'])->name('property_owner.manage_leaves.requested_leaves');
         //     Route::get('approved-leaves', [ManageLeaveController::class, 'approved_leaves'])->name('property_owner.manage_leaves.approved_leaves');

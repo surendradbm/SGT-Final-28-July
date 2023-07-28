@@ -128,9 +128,10 @@ class LoginController extends Controller
         return redirect()->route('property_owner.login');
     }
 
-    public function logOut()
+    public function logOut(Request $request)
     {
         Auth::logout();
+        $request->session()->flush();
         return redirect()->route('property_owner.login');
     }
 }

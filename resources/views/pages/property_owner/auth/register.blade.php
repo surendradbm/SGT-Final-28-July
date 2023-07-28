@@ -6,7 +6,6 @@
             <div class="col-lg-6 col-md-7 col-12">
                 <div class="auth-form">
                     <h1 class="title mb-12">Create your Account </h1>
-
                     <div class="row mt-5">
                         <div class="col-md-12">
                             <!--begin::Image input-->

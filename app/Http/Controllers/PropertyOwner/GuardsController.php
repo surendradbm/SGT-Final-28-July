@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\PropertyOwner;
 
-use App\Http\Controllers\Controller;
+use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GuardsController extends Controller
 {
@@ -14,6 +15,13 @@ class GuardsController extends Controller
 
     public function add()
     {
+        $data['countries'] = Country::get(["name", "id"]);
+        return view('pages.property_owner.guards.add-guard', $data);
+    }
+
+    public function add_check(Request $request)
+    {
+        return $request->all();
         return view('pages.property_owner.guards.add-guard');
     }
 

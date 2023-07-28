@@ -120,7 +120,98 @@
             </figure>
         </div>
     </div>
+    <div class="row justify-content-center mb-12">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="text-center mb-10">
+                <h1 class="plan-table-title mb-8">Pick a plan that works best for you</h1>
+                <p class="plan-table-description">Stay cool, we have a 48-hour money back guarantee!</p>
+            </div>
+            <div class="plan-table-div">
+                <table class="table w-full table-striped plan-table m-0">
+                    <tbody>
+                        <tr>
+                            <td class="type-column">
+                                <div>
+                                    TYPE
+                                </div>
+                            </td>
+                            <td class="info-column">
+                                <div>
+                                    <span>Silver</span>
+                                    <span>$8/Month</span>
+                                </div>
+                            </td>
+                            <td class="info-column">
+                                <div>
+                                    <span>Silver</span>
+                                    <span>$8/Month</span>
+                                </div>
+                            </td>
+                            <td class="info-column">
+                                <div>
+                                    <span>Silver</span>
+                                    <span>$8/Month</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>14-days free trial</td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>No user limit</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Product Support</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Email Support</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column">
+                                <span class="message">Save up to 10%</span>
+                            </td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Integrations</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Removal of Front branding</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column">
+                                <span class="message">Save up to 10%</span>
+                            </td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Active maintenance & support</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Data storage for 365 days</td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-times-circle"></i></td>
+                            <td class="info-column"><i class="fas fa-check-circle"></i></td>
+                        </tr>
 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 

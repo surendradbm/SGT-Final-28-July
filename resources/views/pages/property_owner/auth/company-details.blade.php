@@ -1,5 +1,6 @@
 <x-auth-layout>
     <form action="{{ route('dashboard.company_details_check') }}" class="action" method="POST">
+        {{-- {{ auth()->user()->first_name }} --}}
         @csrf
         <div class="row justify-center">
             <div class="col-lg-6 col-md-7 col-12">
