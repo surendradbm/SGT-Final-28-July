@@ -83,7 +83,7 @@ class SubscriptionController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 // 'avatar' => 'required',
-                'subscription_title' => 'required|unique:subscriptions,subscription_title,'.$request->id,
+                'subscription_title' => 'required|unique:subscriptions,subscription_title,' . $request->id,
                 'maximum_property' => 'required',
                 'maximum_shift' => 'required',
                 'maximum_checkpoint' => 'required',
@@ -100,14 +100,14 @@ class SubscriptionController extends Controller
             $data['subscription_title'] = $request->subscription_title;
             $data['subscription_description'] = $request->subscription_description;
             $data['trial_type'] = $request->trial_type;
-            if($request->trial_type==='0'){
+            if ($request->trial_type === '0') {
                 $data['monthly_price'] = $request->monthly_price;
                 $data['yearly_price'] = $request->yearly_price;
                 $data['discounted_monthly_price_type'] = $request->discounted_monthly_price_type;
                 $data['discounted_monthly_price'] = $request->discounted_monthly_price;
                 $data['discounted_yearly_price_type'] = $request->discounted_yearly_price_type;
                 $data['discounted_yearly_price'] = $request->discounted_yearly_price;
-            }else{
+            } else {
                 $data['monthly_price'] = null;
                 $data['yearly_price'] = null;
                 $data['discounted_monthly_price_type'] = null;
@@ -131,7 +131,7 @@ class SubscriptionController extends Controller
                     File::delete(public_path("/uploads/subscription/" . $request->avatar_remove));
                 }
             }
-            $model = Subscription::where('id',$id)->update($data);
+            $model = Subscription::where('id', $id)->update($data);
 
             return redirect()->route('superadmin.subscription.all');
         } catch (\Exception $e) {

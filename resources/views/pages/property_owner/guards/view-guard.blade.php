@@ -1,12 +1,13 @@
 <x-default-layout>
-    <form action="{{ route('property_owner.guards.update', $guards->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('property_owner.guards.all') }}" method="get" enctype="multipart/form-data">
+        {{-- <form action="{{ route('property_owner.guards.update', $guards->id) }}" method="post" enctype="multipart/form-data"> --}}
         @csrf
         <section class="property-section">
             <div class="guard-header card mt-lg-7 rounded-0">
                 <div class="card-body p-5 pb-3">
                     <div class="row">
                         <div class="col-lg-10 col-12">
-                            <h1 class="title">Edit Guard</h1>
+                            <h1 class="title">View Guard</h1>
                             <p class="description mb-2">Guard ID : {{ $guards->id }}</p>
                             <div class="row mt-5">
                                 <div class="col-lg-3 col-md-4 col-6 mb-3">
@@ -76,13 +77,21 @@
                     <div class="card-body p-7">
                         <div class="float-end">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" name="status" type="checkbox"
+                                <a href="{{ route('property_owner.guards.edit', $guards->id) }}"
+                                    class="btn btn-sm btn-active-icon-primary btn-text-primary menu-link px-3">Edit
+                                    Guard Details
+                                </a>
+                            </div>
+                        </div>
+                        {{-- <div class="float-end">
+                            <div class="form-check form-switch">
+                                <input readonly class="form-check-input" name="status" type="checkbox"
                                     value="{{ !empty($guards->status) ? $guards->status : '' }}" id="status"
                                     onchange="toggleSwitch()" {{ $guards->status === '1' ? 'checked' : '' }}>
                                 <b><label class="form-check-label text-dark"
                                         for="status">{{ $guards->status === '1' ? 'Active Status' : 'Inactive Status' }}</label></b>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row mt-5">
                             <div class="col-md-12">
                                 <!--begin::Image input-->
@@ -92,17 +101,17 @@
                                         style="background-image: url({{ asset('/uploads/profile_pictures/' . $guards->avatar) }})">
                                     </div>
                                     <!--begin::Edit button-->
-                                    <label class="btn btn-primary btn-sm" data-kt-image-input-action="change"
+                                    {{-- <label class="btn btn-primary btn-sm" data-kt-image-input-action="change"
                                         data-bs-dismiss="click"> Change Thumbnail
 
-                                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg"
+                                        <input readonly type="file" name="avatar" accept=".png, .jpg, .jpeg"
                                             value="{{ $guards->avatar }}" />
-                                        <input type="hidden" name="avatar" value="{{ $guards->avatar }}" />
+                                        <input readonly type="hidden" name="avatar" value="{{ $guards->avatar }}" />
                                     </label>
                                     <!--begin::Cancel button-->
                                     <span class="" data-kt-image-input-action="cancel"
                                         data-bs-dismiss="click">Remove
-                                        Thumbnail</span>
+                                        Thumbnail</span> --}}
                                 </div>
                                 <!--end::Image input-->
                             </div>
@@ -115,8 +124,9 @@
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
                                     <label class="required form-label">Name</label>
-                                    <input type="text" class="form-control form-control-solid" name="name"
-                                        value="{{ !empty($guards->name) ? $guards->name : '' }}" required>
+                                    <input readonly type="text" class="form-control form-control-solid"
+                                        name="name" value="{{ !empty($guards->name) ? $guards->name : '' }}"
+                                        required>
                                     @error('name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -125,7 +135,8 @@
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
                                     <label class="required form-label">Guard Position</label>
-                                    <input type="text" class="form-control form-control-solid" name="guard_position"
+                                    <input readonly type="text" class="form-control form-control-solid"
+                                        name="guard_position"
                                         value="{{ !empty($guards->guard_position) ? $guards->guard_position : '' }}"
                                         required>
                                     @error('guard_position')
@@ -152,7 +163,7 @@
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
                                     <label class="required form-label">Date Of Birth</label>
-                                    <input type="date" name="date_of_birth"
+                                    <input readonly type="date" name="date_of_birth"
                                         value="{{ !empty($guards->date_of_birth) ? $guards->date_of_birth : '' }}"
                                         class="form-control form-control-solid" required>
                                     @error('date_of_birth')
@@ -163,7 +174,7 @@
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
                                     <label class="required form-label">Contact Number</label>
-                                    <input name="contact_number"
+                                    <input readonly name="contact_number"
                                         type="text"value="{{ !empty($guards->contact_number) ? $guards->contact_number : '' }}"
                                         class="form-control form-control-solid" required>
                                     @error('contact_number')
@@ -229,7 +240,7 @@
                                 <div class="form-group">
                                     <br>
                                     <label class="required form-label">Street</label>
-                                    <input type="text" name="street"
+                                    <input readonly type="text" name="street"
                                         value="{{ !empty($guards->street) ? $guards->street : '' }}"
                                         class="form-control form-control-solid" required>
                                     @error('street')
@@ -241,7 +252,7 @@
                                 <div class="form-group">
                                     <br>
                                     <label class="required form-label">Zip Code</label>
-                                    <input type="text" name="zip_code"
+                                    <input readonly type="text" name="zip_code"
                                         value="{{ !empty($guards->zip_code) ? $guards->zip_code : '' }}"
                                         class="form-control form-control-solid" required>
                                     @error('zip_code')
@@ -261,7 +272,7 @@
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
                                     <label class="required form-label">Email Address</label>
-                                    <input type="text" name="email_address"
+                                    <input readonly type="text" name="email_address"
                                         value="{{ !empty($guards->email_address) ? $guards->email_address : '' }}"
                                         class="form-control form-control-solid" required>
                                     @error('email_address')
@@ -272,7 +283,7 @@
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
                                     <label class="required form-label">Password</label>
-                                    <input type="password" name="password"
+                                    <input readonly type="password" name="password"
                                         value="{{ !empty($guards->password) ? $guards->password : '' }}"
                                         class="form-control form-control-solid" required>
                                     @error('password')
@@ -280,13 +291,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-12 text-lg-end">
+                            {{-- <div class="col-lg-4 col-12 text-lg-end">
                                 <a href="#" class="link text-decoration-underline d-block my-5">Send
                                     Application</a>
-                            </div>
+                            </div> --}}
                         </div>
-                        <input type="" hidden class="form-control form-control-solid" name="property_owner"
-                            id="property_owner" value="{{ auth()->user()->id }}" required>
+                        <input readonly type="" hidden class="form-control form-control-solid"
+                            name="property_owner" id="property_owner" value="{{ auth()->user()->id }}" required>
                         <br>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-12">
@@ -301,17 +312,17 @@
                                         style="background-image: url({{ asset('/uploads/profile_pictures/' . $guards->front_side_id_card) }})">
                                     </div>
                                     <!--begin::Edit button-->
-                                    <label class="btn btn-primary btn-sm inverse" data-kt-image-input-action="change"
+                                    {{-- <label class="btn btn-primary btn-sm inverse" data-kt-image-input-action="change"
                                         data-bs-dismiss="click"> Edit Front Side
 
-                                        <input type="file" name="front_side_id_card"
+                                        <input readonly type="file" name="front_side_id_card"
                                             accept=".png, .jpg, .jpeg, .svg" />
                                         @error('front_side_id_card')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </label>
                                     <span class="" data-kt-image-input-action="cancel"
-                                        data-bs-dismiss="click">Remove Front Side</span>
+                                        data-bs-dismiss="click">Remove Front Side</span> --}}
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-6 col-12">
@@ -322,11 +333,11 @@
                                     <div class="image-input-wrapper w-300px h-150px"
                                         style="background-image: url({{ asset('/uploads/profile_pictures/' . $guards->back_side_id_card) }})">
                                     </div>
-                                    <div><label class="btn btn-primary btn-sm inverse"
+                                    {{-- <div><label class="btn btn-primary btn-sm inverse"
                                             data-kt-image-input-action="change" data-bs-dismiss="click">
                                             Edit Back
                                             Side
-                                            <input type="file" name="back_side_id_card"
+                                            <input readonly type="file" name="back_side_id_card"
                                                 accept=".png, .jpg, .jpeg, .svg" />
                                             @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -334,25 +345,25 @@
                                                 @endif
                                             </label>
                                             <span class="" data-kt-image-input-action="cancel"
-                                                data-bs-dismiss="click">Remove Back Side</span>
-                                        </div>
-                                    </div>
+                                                data-bs-dismiss="click">Remove Back Side</span> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="card section-card mb-6">
-                        <div class="card-body p-5 text-end">
-                            <button class="btn btn-primary inverse me-3">Cancel</button>
-                            <button class="btn btn-primary">Save</button>
-                        </div>
-                    </div>
                 </div>
-            </section>
-        </form>
-    </x-default-layout>
-    <script>
+            </div>
+            <br>
+            <div class="card section-card mb-6">
+                <div class="card-body p-5 text-end">
+                    <button class="btn btn-primary inverse me-3" type="submit">Cancel</button>
+                    {{-- <button class="btn btn-primary">Save</button> --}}
+                </div>
+            </div>
+            </div>
+        </section>
+    </form>
+</x-default-layout>
+{{-- <script>
         $(document).ready(function() {
             $('#country-dd').on('change', function() {
                 var idCountry = this.value;
@@ -396,14 +407,14 @@
                 });
             });
         });
-    </script>
-    <script>
-        @if (session('error'))
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: '{{ session('error') }}',
-                confirmButtonText: 'OK'
-            });
-        @endif
-    </script>
+    </script> --}}
+<script>
+    @if (session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '{{ session('error') }}',
+            confirmButtonText: 'OK'
+        });
+    @endif
+</script>

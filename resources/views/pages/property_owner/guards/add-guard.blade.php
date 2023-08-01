@@ -76,6 +76,21 @@
                 <div class="card section-card add-guard-card mb-6">
                     <div class="card-body p-7">
                         <div class="row mt-5">
+                            <div class="col-lg-12 col-md-4 col-12">
+                                <h4 class="text-dark fw-bold">Create a New Subscription</h4>
+                                <span class="text-gray-600">Fill out the necessary details to create the
+                                    Subscription</span>
+                                <div class="float-end">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" name="status" type="checkbox" value="1"
+                                            id="status" onchange="toggleSwitch()" checked>
+                                        <b><label class="form-check-label text-dark" for="status">Active
+                                                Status</label></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
                             <div class="col-md-12">
                                 <!--begin::Image input-->
                                 <div class="image-input image-input-empty" data-kt-image-input="true">
@@ -83,14 +98,15 @@
                                     <div class="image-input-wrapper rounded-circle w-130px h-130px"></div>
                                     <!--begin::Edit button-->
                                     <label class="btn btn-primary btn-sm" data-kt-image-input-action="change"
-                                        data-bs-dismiss="click"> Upload Picture
+                                        data-bs-dismiss="click"> Change Thumbnail
+
                                         <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-                                        {{-- <input name="" type="hidden" name="avatar_remove" /> --}}
+                                        {{-- <input type="hidden" name="avatar_remove" /> --}}
                                     </label>
                                     <!--begin::Cancel button-->
                                     <span class="" data-kt-image-input-action="cancel"
-                                        style="transform: translate(95%, 230%)!important;"
-                                        data-bs-dismiss="click">Remove</span>
+                                        data-bs-dismiss="click">Remove
+                                        Thumbnail</span>
                                 </div>
                                 <!--end::Image input-->
                             </div>
@@ -105,15 +121,18 @@
                                 <div class="form-group">
                                     <b><label class="required form-label" for="name">Name</label><br></b>
                                     <input type="text" class="form-control form-control-solid" name="name"
-                                        id="name" placeholder="Enter Guard Name" value="{{ old('') }}"
+                                        id="name" placeholder="Enter Guard Name" value="{{ old('name') }}"
                                         required>
                                 </div>
                             </div>
+                            <input type="" hidden class="form-control form-control-solid" name="property_owner"
+                                id="property_owner" value="{{ auth()->user()->id }}" required>
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
-                                    <label class=" required form-label">Guard Position</label>
-                                    <input type="text" class="form-control form-control-solid" name="position"
-                                        id="position" placeholder="Enter Position" value="" required>
+                                    <label class="required form-label">Guard Position</label>
+                                    <input type="text" class="form-control form-control-solid" name="guard_position"
+                                        id="position" placeholder="Enter Position" value="{{ old('guard_position') }}"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
@@ -131,20 +150,21 @@
                                 <div class="form-group">
                                     <b><label class="required form-label" for="date">Date Of Birth</label><br></b>
                                     <input type="text" class="form-control form-control-solid" name="birth_date"
-                                        id="date" placeholder="Enter Date Of Birth" value="" required>
+                                        id="date" placeholder="Enter Date Of Birth"
+                                        value="{{ old('birth_date') }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
                                 <div class="form-group">
-                                    <label class=" required form-label">Contact Number</label>
-                                    <input type="tel" class="form-control form-control-solid" name="phone"
-                                        id="phone" placeholder="Enter Mobile Number" value="" required>
+                                    <label class="required form-label">Contact Number</label>
+                                    <input type="tel" class=" form-control form-control-solid" name="phone"
+                                        id="phone" placeholder="Enter Mobile Number" value="{{ old('phone') }}"
+                                        required>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="card section-card add-guard-card mb-6">
                     <div class="card-body p-7">
                         <div class="row ">
@@ -186,7 +206,8 @@
                                     <br>
                                     <b><label class="required form-label" for="street">street</label><br></b>
                                     <input type="text" class="form-control form-control-solid" name="street"
-                                        id="street" placeholder="Enter Street" value="" required>
+                                        id="street" placeholder="Enter Street" value="{{ old('street') }}"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-12">
@@ -194,13 +215,13 @@
                                     <br>
                                     <b><label class="required form-label" for="zip_code">Zip Code</label><br></b>
                                     <input type="text" class="form-control form-control-solid" name="zip_code"
-                                        id="zip_code" placeholder="Enter Zip Code" value="" required>
+                                        id="zip_code" placeholder="Enter Zip Code" value="{{ old('zip_code') }}"
+                                        required>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="card section-card add-guard-card mb-6">
                     <div class="card-body p-7">
                         <div class="row ">
@@ -211,7 +232,8 @@
                                 <div class="form-group">
                                     <b><label class="required form-label" for="email">Email Address</label><br></b>
                                     <input type="email" class="form-control form-control-solid" name="email"
-                                        id="email" placeholder="Enter Email Address" value="" required>
+                                        id="email" placeholder="Enter Email Address" value="{{ old('email') }}"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 mb-5">
@@ -228,13 +250,12 @@
                             <div class="col-lg-4 col-12 text-lg-end">
                                 <a href="#" class="link text-decoration-underline d-block my-5">Send
                                     Application</a>
-                                <a href="#" class="link text-decoration-underline d-block">Change Password</a>
+                                {{-- <a href="#" class="link text-decoration-underline d-block">Change Password</a> --}}
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-12">
-
                             </div>
                             <div class="col-lg-5 col-md-6 col-12">
                                 <h4 class="text-dark fw-bold">Guard Identity Card</h4>
@@ -248,18 +269,14 @@
                                         data-bs-dismiss="click"> Upload Front Side
 
                                         <input type="file" name="front_side" accept=".png, .jpg, .jpeg, .svg" />
-                                        <input type="hidden" name="avatar_remove" />
+                                        {{-- <input type="hidden" name="avatar_remove" /> --}}
                                     </label>
                                     <!--begin::Cancel button-->
                                     <span class="" data-kt-image-input-action="cancel"
                                         data-bs-dismiss="click">Remove Front Side</span>
 
                                 </div>
-
                                 <!--end::Image input-->
-
-
-
                             </div>
                             <div class="col-lg-5 col-md-6 col-12">
                                 <h4 class="text-dark fw-bold"></h4>
@@ -276,31 +293,26 @@
 
                                             <input type="file" name="back_side"
                                                 accept=".png, .jpg, .jpeg, .svg" />
-                                            <input type="hidden" name="avatar_remove" />
+                                            {{-- <input type="hidden" name="avatar_remove" /> --}}
                                         </label>
                                         <!--begin::Cancel button-->
                                         <span class="" data-kt-image-input-action="cancel"
                                             data-bs-dismiss="click">Remove Back Side</span>
                                     </div>
-
                                 </div>
                                 <!--end::Image input-->
                             </div>
                         </div>
-
                     </div>
                 </div>
-
                 <div class="card section-card mb-6">
                     <div class="card-body p-5 text-end">
                         <button class="btn btn-primary inverse me-3">Cancel</button>
                         <button class="btn btn-primary">Save</button>
                     </div>
                 </div>
-
             </div>
             {{-- Section Content (End) --}}
-
         </section>
     </form>
 </x-default-layout>
@@ -359,7 +371,6 @@
         $("#date").flatpickr({
             dateFormat: "d-m-Y",
         });
-
         // for view password
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
@@ -372,4 +383,19 @@
             this.classList.toggle('fa-eye-slash');
         });
     });
+</script>
+<script>
+    function toggleSwitch() {
+        const checkbox = document.getElementById("status");
+
+        const label = document.querySelector(".form-check-label");
+
+        if (checkbox.checked) {
+            label.textContent = "Active Status";
+            checkbox.value = "1";
+        } else {
+            label.textContent = "Inactive Status";
+            checkbox.value = "0";
+        }
+    }
 </script>

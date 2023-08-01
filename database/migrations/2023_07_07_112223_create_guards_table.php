@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('guards', function (Blueprint $table) {
             $table->id();
+            $table->string('avatar');
             $table->string('name');
             $table->string('guard_position');
             $table->string('gender');
             $table->date('date_of_birth');
-            $table->integer('contact_number');
+            $table->string('contact_number');
             $table->string('street');
             $table->string('city');
             $table->string('state');
@@ -25,7 +26,6 @@ return new class extends Migration
             $table->integer('zip_code');
             $table->string('email_address');
             $table->string('password');
-            $table->string('image');
             $table->timestamps();
         });
     }

@@ -109,15 +109,15 @@
             {{-- SearchBar, Filter, Export  Ends --}}
             {{-- Table Starts --}}
             <div class="mt-5">
-                <table class="table table-striped border rounded gy-5 gs-7" id="table-data"
-                    style="width:100%">
+                <table class="table table-striped border rounded gy-5 gs-7" id="table-data" style="width:100%">
                     <thead>
                         <tr class="bg-primary text-white">
                             <th>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="headCheckbox"
                                         onchange="toggleAllCheckboxes()">
-                                    <label class="form-check-label text-white" for="headCheckbox">{{ __('table.All') }}</label>
+                                    <label class="form-check-label text-white"
+                                        for="headCheckbox">{{ __('table.All') }}</label>
                                 </div>
                             </th>
                             <th>{{ __('table.s_no') }}</th>
@@ -194,21 +194,16 @@
         </div>
     </div>
 
-
-
-
-{{-- All Checkbox --}}
-<script>
-    function toggleAllCheckboxes() {
-        var headCheckbox = document.getElementById("headCheckbox");
-        var checkboxes = document.querySelectorAll(".body-checkbox");
-        for (var i = 0; i < checkboxes.length; i++) {
-            checkboxes[i].checked = headCheckbox.checked;
+    {{-- All Checkbox --}}
+    <script>
+        function toggleAllCheckboxes() {
+            var headCheckbox = document.getElementById("headCheckbox");
+            var checkboxes = document.querySelectorAll(".body-checkbox");
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = headCheckbox.checked;
+            }
         }
-    }
-</script>
-
-
+    </script>
 </x-default-layout>
 
 {{-- Status Updated --}}

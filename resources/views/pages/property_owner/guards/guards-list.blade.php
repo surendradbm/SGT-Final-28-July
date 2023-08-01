@@ -1,24 +1,5 @@
 <x-default-layout>
-    <div class="modal fade" id="delete-guard-modal" tabindex="-1" aria-labelledby="delete-guard-modal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <p>All the Data Will be lost. Do you want to <br> delete this guard?</p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary ms-3">Continue</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="assign-guard-modal" tabindex="-1" aria-labelledby="assign-guard-modal"
-        aria-hidden="true">
+    <div class="modal fade" id="assign-guard-modal" tabindex="-1" aria-labelledby="assign-guard-modal" aria-hidden="true">
         <div class="modal-dialog rounded">
             <div class="modal-content">
                 <div class="modal-header">
@@ -71,18 +52,13 @@
             </div>
         </div>
     </div>
-
-
     <section class="property-section">
-
-        {{-- Top Header (Start) --}}
         <div class="guard-header card mt-lg-7 rounded-0">
             <div class="card-body p-5 pb-3">
                 <div class="row">
                     <div class="col-lg-10 col-12">
                         <h1 class="title">Guards</h1>
                         <div class="row mt-5">
-
                             <div class="col-lg-3 col-md-4 col-6 mb-3">
                                 <figure class="info-card card">
                                     <div class="card-body p-4">
@@ -173,11 +149,7 @@
                 </div>
             </div>
         </div>
-        {{-- Top Header (End) --}}
-
-        {{-- Section Content (Start) --}}
         <div class="p-7">
-
             <div class="card table-card mb-6">
                 <div class="card-body p-3">
                     <iframe
@@ -186,33 +158,11 @@
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-
             <div class="card table-card">
-                {{-- <div class="card-body p-5 border-bottom">
-                    <div class="row w-100">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-control search-box">
-                                <i class="fas fa-search"></i>
-                                <input type="search" placeholder="Search by location, job role,..." class="py-1" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 text-lg-end pe-0">
-                                <select class="form-select">
-                                    <option value="Filter">Filter</option>
-                                </select>
-                                <select class="form-select">
-                                    <option value="Sort">Sort</option>
-                                </select>
-                                <select class="form-select">
-                                    <option value="Export">Export</option>
-                                </select>
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="table-responsive mt-5">
                     <table class="table table-hover table-rounded border gy-7 gs-7" id="dataTable">
                         <thead>
-                            <tr class="fw-semibold fs-6 border-bottom-2 border-gray-200">
+                            <tr class="bg-primary text-white">
                                 <th>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value=""
@@ -231,18 +181,18 @@
                                 <th>Emails</th>
                                 <th>Phone No.</th>
                                 <th>Account Created Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
                                 <th>Property Assigned</th>
                                 <th>Shift Completed</th>
                                 <th>Missed Shifts</th>
                                 <th>Reports</th>
                                 <th>Total Leaves</th>
                                 <th>Last Log In</th>
-                                <th>Status</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 1; $i <= 6; $i++)
+                            @foreach ($guards as $key => $guard)
                                 <tr>
                                     <td>
                                         <div class="form-check">
@@ -252,38 +202,50 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td>{{ $i }}</td>
+                                    <td>{{ ++$key }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="symbol symbol-30px symbol-md-40px me-3">
-                                                <img src="http://127.0.0.1:8000/assets/media/avatars/300-1.jpg"
-                                                    alt="">
+                                                <img src="{{ asset('/uploads/profile_pictures/' . $guard->avatar) }}"
+                                                    class="image_table" alt="user">
                                             </div>
                                             <div class="d-flex justify-content-start flex-column">
-                                                <label class="mb-1 fs-6">Kimberly Mastrangelo</label>
+                                                <label class="mb-1 fs-6">{{ $guard->name }}</label>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>Supervisor</td>
-                                    <td>Male</td>
-                                    <td>India</td>
-                                    <td>Uttar Pradesh</td>
-                                    <td>Lucknow</td>
-                                    <td>s.t.sharkey@outlook.com</td>
-                                    <td>(215) 424-7763</td>
-                                    <td>May 28, 2023</td>
-                                    <td><u class="text-hover-primary">23</u></td>
-                                    <td><u class="text-hover-primary">23</u></td>
-                                    <td><u class="text-hover-primary">23</u></td>
-                                    <td><u class="text-hover-primary">23</u></td>
-                                    <td><u class="text-hover-primary">23</u></td>
-                                    <td>Jun 8, 2023 11:26 am</td>
+                                    <td>{{ $guard->guard_position }}</td>
+                                    <td>{{ $guard->gender }}</td>
+                                    @php
+                                        $country = \App\Models\Country::where('id', $guard->country)
+                                            ->pluck('name')
+                                            ->first();
+                                        $state = \App\Models\State::where('country_id', $guard->country)
+                                            ->where('id', $guard->state)
+                                            ->pluck('name')
+                                            ->first();
+                                        $city = \App\Models\City::where('state_id', $guard->state)
+                                            ->where('id', $guard->city)
+                                            ->pluck('name')
+                                            ->first();
+                                    @endphp
+                                    <td>{{ $country }}</td>
+                                    <td>{{ $state }}</td>
+                                    <td>{{ $city }}</td>
+                                    <td>{{ $guard->email_address }}</td>
+                                    <td>{{ $guard->contact_number }}</td>
+                                    @php
+                                        $formattedDate = date('F j, Y', strtotime($guard->created_at));
+                                    @endphp
+                                    <td>{{ $formattedDate }}</td>
                                     <td>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input body-toggle" type="checkbox"
-                                                role="switch" id="flexSwitchCheckDefault" onchange="toggleSwitch()">
-                                            <label class="form-check-label"
-                                                for="flexSwitchCheckDefault">Inactive</label>
+                                            <input class="form-check-input checkbox" type="checkbox" role="switch"
+                                                onclick="update_status('{{ $guard->id }}',this)" id="status"
+                                                value="{{ $guard->status }}"
+                                                {{ $guard->status == '1' ? 'checked="true"' : '' }} />
+                                            <label class="form-check-label" for="status">
+                                                {{ $guard->status === '1' ? 'Active' : 'Inactive' }}</label>
                                         </div>
                                     </td>
                                     <td>
@@ -300,42 +262,52 @@
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="#" class="menu-link px-3">
-                                                    View Guard ID
+                                                    Resend App Link
                                                 </a>
                                             </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('property_owner.guards.edit-guard') }}"
+                                                <a href="{{ route('property_owner.guards.view', $guard->id) }}"
                                                     class="menu-link px-3">
-                                                    Edit Details
+                                                    View Guard profile
                                                 </a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-bs-toggle="modal"
-                                                    data-bs-target="#delete-guard-modal">
-                                                    Delete Guard
+                                                <a href="{{ route('property_owner.guards.edit', $guard->id) }}"
+                                                    class="btn btn-sm btn-active-icon-primary btn-text-primary menu-link px-3">Edit
+                                                    Guard
+                                                </a>
+                                            </div>
+                                            <!--end::Menu item-->
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a href="javascript:void(0)"
+                                                    onclick="deletedData('{{ $guard->id }}','{{ route('property_owner.guards.delete') }}')"
+                                                    class="btn btn-sm btn-active-icon-danger btn-text-danger menu-link px-3">Delete
+                                                    Guard</a>
                                                 </a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu separator-->
                                         </div>
                                     </td>
-                                    {{-- <td></td> --}}
+                                    <td><u class="text-hover-primary">23</u></td>
+                                    <td><u class="text-hover-primary">23</u></td>
+                                    <td><u class="text-hover-primary">23</u></td>
+                                    <td><u class="text-hover-primary">23</u></td>
+                                    <td><u class="text-hover-primary">23</u></td>
+                                    <td>Jun 8, 2023 11:26 am</td>
                                 </tr>
-                            @endfor
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
-        {{-- Section Content (End) --}}
     </section>
 </x-default-layout>
+
 {{-- Toggle Active Inactive --}}
 <script>
     function toggleSwitch() {
@@ -354,3 +326,24 @@
     }
 </script>
 {{-- Toggle Active Inactive Ends --}}
+
+{{-- Status Updated --}}
+<script>
+    function update_status(id, e) {
+        var status = $(e).is(':checked') ? 1 : 0;
+        $.ajax({
+            url: "{{ route('property_owner.guards.status') }}",
+            method: 'post',
+            data: {
+                _token: "{{ csrf_token() }}",
+                'id': id,
+                'status': status
+            },
+            success: function(data) {
+                toastr.success('success', 'Success! Status Updated');
+                toggleSwitch();
+            }
+        });
+    }
+</script>
+{{-- Status Updated Ends --}}

@@ -98,8 +98,12 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/guards')->group(function () {
             Route::get('all', [GuardsController::class, 'all'])->name('property_owner.guards.all');
             Route::get('add', [GuardsController::class, 'add'])->name('property_owner.guards.add-guard');
-            Route::post('add', [GuardsController::class, 'add_check'])->name('property_owner.guards.add-guard-check');
-            Route::get('edit', [GuardsController::class, 'edit'])->name('property_owner.guards.edit-guard');
+            Route::post('add', [GuardsController::class, 'store'])->name('property_owner.guards.add-guard-check');
+            Route::post('status', [GuardsController::class, 'status'])->name('property_owner.guards.status');
+            Route::post('delete', [GuardsController::class, 'delete'])->name('property_owner.guards.delete');
+            Route::get('view/{id}', [GuardsController::class, 'view'])->name('property_owner.guards.view');
+            Route::get('edit/{id}', [GuardsController::class, 'edit'])->name('property_owner.guards.edit');
+            Route::post('update/{id}', [GuardsController::class, 'update'])->name('property_owner.guards.update');
         });
 
         // PROPERTIES

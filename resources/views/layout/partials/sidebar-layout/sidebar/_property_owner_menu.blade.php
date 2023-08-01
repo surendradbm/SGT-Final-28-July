@@ -62,14 +62,13 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="/properties/create">
-                            <a class="menu-link" href="{{ route('property_owner.properties.create') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Add New Property</span>
-                            </a>
-                            <!--end:Menu link-->
+                        <a class="menu-link" href="{{ route('property_owner.properties.create') }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Add New Property</span>
+                        </a>
+                        <!--end:Menu link-->
                     </div>
                     <!--end:Menu item-->
 
