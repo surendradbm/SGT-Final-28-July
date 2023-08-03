@@ -361,7 +361,6 @@
         });
     });
 </script>
-
 <script>
     let table = new DataTable('#data-table');
 </script>

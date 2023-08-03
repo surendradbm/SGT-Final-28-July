@@ -19,6 +19,7 @@ use App\Http\Controllers\PropertyOwner\DashboardController;
 use App\Http\Controllers\PropertyOwner\TimesheetController;
 use App\Http\Controllers\PropertyOwner\PropertiesController;
 use App\Http\Controllers\SubscribtionConfirmationController;
+use App\Http\Controllers\PropertyOwner\ManageLeaveController;
 
 // SIGNUP
 Route::get('/sign-up', [RegisterController::class, 'signUp'])->name('property_owner.signUp');
@@ -109,7 +110,8 @@ Route::middleware('auth')->group(function () {
         // PROPERTIES
         Route::prefix('/properties')->group(function () {
             Route::get('all', [PropertiesController::class, 'all'])->name('property_owner.properties.all');
-            Route::get('create', [PropertiesController::class, 'create'])->name('property_owner.properties.create');
+            Route::get('create', [PropertiesController::class, 'properties_index'])->name('property_owner.properties.create');
+            Route::post('store', [PropertiesController::class, 'properties_store'])->name('property_owner.properties.store');
             Route::get('shift', [PropertiesController::class, 'shift'])->name('property_owner.properties.shift');
             Route::get('checkpoints', [PropertiesController::class, 'checkpoints'])->name('property_owner.properties.checkpoints');
             Route::get('morningShift', [PropertiesController::class, 'morningShift'])->name('property_owner.properties.morningShift');
@@ -163,11 +165,11 @@ Route::middleware('auth')->group(function () {
         });
 
         // MANAGE LEAVES
-        // Route::group(['prefix' => 'manage-leaves'], function () {
-        //     Route::get('requested-leaves', [ManageLeaveController::class, 'requested_leaves'])->name('property_owner.manage_leaves.requested_leaves');
-        //     Route::get('approved-leaves', [ManageLeaveController::class, 'approved_leaves'])->name('property_owner.manage_leaves.approved_leaves');
-        //     Route::get('rejected-leaves', [ManageLeaveController::class, 'rejected_leaves'])->name('property_owner.manage_leaves.rejected_leaves');
-        //     Route::get('leave-policy', [ManageLeaveController::class, 'leave_policy'])->name('property_owner.manage_leaves.leave_policy');
-        // });
+        Route::group(['prefix' => 'manage-leaves'], function () {
+            Route::get('requested-leaves', [ManageLeaveController::class, 'requested_leaves'])->name('property_owner.manage_leaves.requested_leaves');
+            Route::get('approved-leaves', [ManageLeaveController::class, 'approved_leaves'])->name('property_owner.manage_leaves.approved_leaves');
+            Route::get('rejected-leaves', [ManageLeaveController::class, 'rejected_leaves'])->name('property_owner.manage_leaves.rejected_leaves');
+            Route::get('leave-policy', [ManageLeaveController::class, 'leave_policy'])->name('property_owner.manage_leaves.leave_policy');
+        });
     });
 });

@@ -226,9 +226,10 @@
             </div>
             <!--end:Menu item-->
 
-            <!--begin:Menu item-->
-            <div class="menu-item">
-                <a class="menu-link">
+            <!--begin:Manage Leaves Menu-->
+            <div data-kt-menu-trigger="click"
+                class="menu-item menu-accordion {{ $menu == 'manage-leaves' ? 'show' : '' }}">
+                <span class="menu-link">
                     <span class="menu-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -237,9 +238,42 @@
                         </svg>
                     </span>
                     <span class="menu-title">Manage Leaves</span>
-                </a>
+                    <span class="menu-arrow"></span>
+                </span>
+                <!--begin:Menu sub-->
+                <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-item">
+                        <a class="menu-link {{ $menu . '/' . $subMenu == 'manage-leaves/requested-leaves' ? 'active' : '' }}"
+                            href="{{ route('property_owner.manage_leaves.requested_leaves') }}">
+                            <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                            <span class="menu-title">Requested Leaves</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link {{ $menu . '/' . $subMenu == 'manage-leaves/approved-leaves' ? 'active' : '' }}"
+                            href="{{ route('property_owner.manage_leaves.approved_leaves') }}">
+                            <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                            <span class="menu-title">Approved Leaves</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link {{ $menu . '/' . $subMenu == 'manage-leaves/rejected-leaves' ? 'active' : '' }}"
+                            href="{{ route('property_owner.manage_leaves.rejected_leaves') }}">
+                            <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                            <span class="menu-title">Rejected Leaves</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link {{ $menu . '/' . $subMenu == 'manage-leaves/leave-policy' ? 'active' : '' }}"
+                            href="{{ route('property_owner.manage_leaves.leave_policy') }}">
+                            <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                            <span class="menu-title">Leave Policy</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            <!--end:Menu item-->
+            <!--end:Manage Leaves-->
 
             <!--begin:Menu item-->
             <div class="menu-item">

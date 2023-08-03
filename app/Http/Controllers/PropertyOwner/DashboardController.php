@@ -13,6 +13,8 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
         $user_subscribed = Subscriber::where('user_id', $user_id)->first();
-        return view('pages.dashboards.index', compact('user_subscribed'));
+        // $data['value'] = '1';
+        $data['value'] = '';
+        return view('pages.dashboards.index', compact('user_subscribed'), $data);
     }
 }

@@ -6,8 +6,14 @@
     data-kt-swapper-mode="{default: 'append', lg: 'prepend'}"
     data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
     <!--begin::Menu-->
+    @php $user = request()->segment(2); @endphp
+    @php $module = request()->segment(3); @endphp
     <div>
-        <h1 class="header-title mb-0"></h1>
+        <h1 class="header-title mb-0">
+            @if ($user == 'properties' && $module == 'create')
+                Create New Property
+            @endif
+        </h1>
     </div>
 </div>
 <!--end::Menu wrapper-->
